@@ -2,7 +2,7 @@
 name: test
 
 on:
-  pr:
+  pull_request:
     branches:
       - master
 
