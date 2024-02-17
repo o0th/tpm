@@ -16,7 +16,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y git-core expect
-          sudo apt-get install -y python-software-properties software-properties-common
+          sudo apt-get install -y software-properties-common
           sudo apt-get install -y libevent-dev libncurses-dev
 
       - name: Set up tmux source
