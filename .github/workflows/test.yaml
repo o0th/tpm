@@ -30,7 +30,7 @@ jobs:
       - name: Set up test source
         uses: actions/checkout@v4
         with:
-          repository: 'tmux-plugin/tmux-test'
+          repository: 'tmux-plugins/tmux-test'
           path: 'lib/tmux-test'
 
       - name: Set up test
