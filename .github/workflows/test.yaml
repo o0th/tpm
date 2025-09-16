@@ -1,0 +1,40 @@
+---
+name: test
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  dev:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Set up dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git-core expect
+          sudo apt-get install -y software-properties-common
+          sudo apt-get install -y libevent-dev libncurses-dev
+
+      - name: Set up tmux source
+        uses: actions/checkout@v4
+
+      # - name: Set up tmux
+      #   run: |
+      #     sh autogen.sh
+      #     ./configure && make && make install
+
+      - name: Set up test source
+        uses: actions/checkout@v4
+        with:
+          repository: 'tmux-plugins/tmux-test'
+          path: 'lib/tmux-test'
+
+      - name: Set up test
+        run: ./lib/tmux-test/setup
+
+      - name: Run test
+        run: ./lib/tmux-test/run_tests
